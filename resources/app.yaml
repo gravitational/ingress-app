@@ -1,0 +1,38 @@
+apiVersion: bundle.gravitational.io/v2
+kind: SystemApplication
+metadata:
+  name: ingress-app
+  resourceVersion: "0.0.0"
+hooks:
+  install:
+    job: |
+      apiVersion: batch/v1
+      kind: Job
+      metadata:
+        name: ingress-app-install
+      spec:
+        template:
+          metadata:
+            name: ingress-app-install
+          spec:
+            restartPolicy: OnFailure
+            containers:
+              - name: hook
+                image: quay.io/gravitational/debian-tall:buster
+                command: ["/bin/sh", "/var/lib/gravity/resources/install.sh"]
+  uninstall:
+    job: |
+      apiVersion: batch/v1
+      kind: Job
+      metadata:
+        name: ingress-app-uninstall
+      spec:
+        template:
+          metadata:
+            name: ingress-app-uninstall
+          spec:
+            restartPolicy: OnFailure
+            containers:
+              - name: hook
+                image: quay.io/gravitational/debian-tall:buster
+                command: ["/bin/sh", "/var/lib/gravity/resources/uninstall.sh"]
