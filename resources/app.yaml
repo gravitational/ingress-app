@@ -36,3 +36,19 @@ hooks:
               - name: hook
                 image: quay.io/gravitational/debian-tall:buster
                 command: ["/bin/sh", "/var/lib/gravity/resources/uninstall.sh"]
+  update:
+    job: |
+      apiVersion: batch/v1
+      kind: Job
+      metadata:
+        name: ingress-app-update
+      spec:
+        template:
+          metadata:
+            name: ingress-app-update
+          spec:
+            restartPolicy: OnFailure
+            containers:
+              - name: hook
+                image: quay.io/gravitational/debian-tall:stretch
+                command: ["/bin/sh", "/var/lib/gravity/resources/update.sh"]
