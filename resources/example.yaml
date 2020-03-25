@@ -9,32 +9,36 @@
 #  rules:
 #  - http:
 #      paths:
+#      - path: /
+#        backend:
+#          serviceName: nginx-test
+#          servicePort: 80
 #      - path: /test
 #        backend:
-#          serviceName: test
-#          servicePort: 8080
+#          serviceName: nginx-test
+#          servicePort: 80
 #  - host: testme.gravitational.com
 #    http:
 #      paths:
 #      - path: /
 #        backend:
-#          serviceName: test
+#          serviceName: nginx-test
 #          servicePort: 80
 #      - path: /status
 #        backend:
-#          serviceName: test
-#          servicePort: 6080
+#          serviceName: nginx-test
+#          servicePort: 80
 #---
 #apiVersion: networking.k8s.io/v1beta1
 #kind: Ingress
 #metadata:
-#  name: tls-example-ingress
+#  name: tls-test-ingress
 #  tls:
 #  - hosts:
-#    - sslexample.foo.com
-#    secretName: testsecret-tls
+#    - ssl-example.gravitational.com
+#    secretName: test-secret-tls
 #  rules:
-#    - host: sslexample.foo.com
+#    - host: ssl-example.gravitational.com
 #      http:
 #        paths:
 #        - path: /
@@ -45,9 +49,42 @@
 #apiVersion: v1
 #kind: Secret
 #metadata:
-#  name: testsecret-tls
+#  name: test-secret-tls
 #  namespace: default
 #data:
 #  tls.crt: base64 encoded cert
 #  tls.key: base64 encoded key
 #type: kubernetes.io/tls
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: nginx-test
+#  labels:
+#    run: nginx-test
+#spec:
+#  ports:
+#  - port: 80
+#    protocol: TCP
+#  selector:
+#    run: nginx-test
+#---
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: nginx-test
+#spec:
+#  selector:
+#    matchLabels:
+#      run: nginx-test
+#  replicas: 2
+#  template:
+#    metadata:
+#      labels:
+#        run: nginx-test
+#    spec:
+#      containers:
+#      - name: nginx
+#        image: nginx
+#        ports:
+#        - containerPort: 80
