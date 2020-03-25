@@ -23,6 +23,7 @@ import: $(shell mkdir -p $(OUT_DIR)) check-vars
 		$(REPOSITORY)/$(NAME):$(VERSION)
 	$(GRAVITY) app import --vendor --version=$(VERSION) \
 		$(GRAVITY_IMAGE_FLAGS) $(GRAVITY_EXTRA_FLAGS) \
+		--ignore=resources/charts/ingress-nginx/docs/ \ 
 		--include=resources --include=registry .
 
 .PHONY: version
