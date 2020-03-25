@@ -1,6 +1,7 @@
 #!/bin/bash
-helm upgrade /var/lib/gravity/resources/charts/nginx-ingress                 \
-    --name gravity-ingress                                                   \
+helm upgrade gravity-ingress                                                 \
+    /var/lib/gravity/resources/charts/nginx-ingress                          \
+    --install                                                                \
     --namespace kube-system                                                  \
     --set rbac.create=true                                                   \
     --set podSecurityPolicy.enabled=true                                     \
