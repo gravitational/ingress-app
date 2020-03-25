@@ -18,7 +18,7 @@ hooks:
             restartPolicy: OnFailure
             containers:
               - name: hook
-                image: quay.io/gravitational/debian-tall:buster
+                image: quay.io/gravitational/debian-tall:stretch
                 command: ["/bin/sh", "/var/lib/gravity/resources/install.sh"]
   uninstall:
     job: |
@@ -34,7 +34,7 @@ hooks:
             restartPolicy: OnFailure
             containers:
               - name: hook
-                image: quay.io/gravitational/debian-tall:buster
+                image: quay.io/gravitational/debian-tall:stretch
                 command: ["/bin/sh", "/var/lib/gravity/resources/uninstall.sh"]
   update:
     job: |

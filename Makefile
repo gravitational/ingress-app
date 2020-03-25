@@ -5,7 +5,7 @@ OUT_DIR ?= $(shell pwd)/build
 OUT ?= $(OUT_DIR)/$(NAME)-$(VERSION).tar.gz
 GRAVITY ?= gravity
 
-DEBIAN_VERSION := buster
+DEBIAN_VERSION := stretch
 
 GRAVITY_EXTRA_FLAGS ?=
 GRAVITY_IMAGE_FLAGS := --set-image=quay.io/gravitational/debian-tall:$(DEBIAN_VERSION)
