@@ -1,6 +1,6 @@
 #!/bin/bash
 helm upgrade gravity-ingress                                                 \
-    /var/lib/gravity/resources/charts/ingress-nginx                          \
+    /var/lib/gravity/resources/charts/nginx-ingress                          \
     --install                                                                \
     --namespace kube-system                                                  \
     --set rbac.create=true                                                   \
