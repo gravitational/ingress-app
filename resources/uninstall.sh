@@ -1,4 +1,4 @@
 #!/bin/bash
-helm delete gravity-ingress
+/usr/local/bin/helm delete gravity-ingress                                   \
     --purge                                                                  \
     --namespace kube-system                                                  \

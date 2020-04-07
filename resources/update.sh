@@ -1,5 +1,5 @@
 #!/bin/bash
-helm upgrade gravity-ingress                                                 \
+/usr/local/bin/helm upgrade gravity-ingress                                  \
     /var/lib/gravity/resources/charts/nginx-ingress                          \
     --install                                                                \
     --namespace kube-system                                                  \
