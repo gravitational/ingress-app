@@ -34,9 +34,9 @@ version:
 
 .PHONY: check-vars
 check-vars:
-	ifndef VERSION
+ifndef VERSION
 	$(error VERSION is not set)
-	endif
+endif
 
 .PHONY: clean
 clean:
