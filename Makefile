@@ -34,9 +34,9 @@ version:
 
 .PHONY: check-vars
 check-vars:
-	@if [ -z "$(VERSION)" ]; then \
-		echo "VERSION is not set"; exit 1; \
-	fi;
+	ifndef VERSION
+	$(error VERSION is not set)
+	endif
 
 .PHONY: clean
 clean:
