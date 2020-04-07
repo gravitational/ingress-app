@@ -1,3 +1,0 @@
-[submodule "resources/charts/ingress-nginx"]
-	path = resources/charts/ingress-nginx
-	url = https://github.com/kubernetes/ingress-nginx
