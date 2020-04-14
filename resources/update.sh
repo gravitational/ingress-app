@@ -2,6 +2,7 @@
 /usr/local/bin/helm upgrade gravity-ingress                                  \
     /var/lib/gravity/resources/charts/nginx-ingress                          \
     --install                                                                \
+    --atomic                                                                 \
     --namespace kube-system                                                  \
     --set rbac.create=true                                                   \
     --set podSecurityPolicy.enabled=true                                     \
