@@ -2,7 +2,7 @@ apiVersion: bundle.gravitational.io/v2
 kind: SystemApplication
 metadata:
   name: ingress-app
-  resourceVersion: "0.0.1"
+  resourceVersion: "0.0.2"
 hooks:
   install:
     job: |
