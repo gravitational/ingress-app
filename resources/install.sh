@@ -6,4 +6,5 @@
     --set podSecurityPolicy.enabled=true                                     \
     --set controller.hostNetwork=true                                        \
     --set controller.kind=DaemonSet                                          \
-    --set controller.daemonset.useHostPort=true
+    --set controller.daemonset.useHostPort=true                              \
+    --set controller.service.type=NodePort
