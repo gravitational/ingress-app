@@ -3,7 +3,7 @@
     /var/lib/gravity/resources/charts/nginx-ingress                          \
     --install                                                                \
     --atomic                                                                 \
-    --namespace kube-system                                                  \
+    --namespace ingress                                                      \
     --set rbac.create=true                                                   \
     --set podSecurityPolicy.enabled=true                                     \
     --set controller.hostNetwork=true                                        \
