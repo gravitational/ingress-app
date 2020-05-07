@@ -2,8 +2,8 @@
 
 SVC_TYPE="NodePort"
 
-if [ "${GRAVITY_CLUSTER_PROVIDER}" == "${aws}" ] || \
-   [ "${GRAVITY_CLUSTER_PROVIDER}" == "${gce}" ] ; then
+if [ "${GRAVITY_CLUSTER_PROVIDER}" == "aws" ] || \
+   [ "${GRAVITY_CLUSTER_PROVIDER}" == "gce" ] ; then
   SVC_TYPE="LoadBalancer"
 fi
 
