@@ -14,6 +14,7 @@ fi
     --namespace ingress                                                      \
     --set rbac.create=true                                                   \
     --set podSecurityPolicy.enabled=true                                     \
+    --set controller.allowSnippetAnnotations=false                           \
     --set controller.hostNetwork=true                                        \
     --set controller.kind=DaemonSet                                          \
     --set controller.daemonset.useHostPort=true                              \
