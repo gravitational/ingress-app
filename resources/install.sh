@@ -7,7 +7,7 @@ if [ "${GRAVITY_CLUSTER_PROVIDER}" == "aws" ] || \
   SVC_TYPE="LoadBalancer"
 fi
 
-/usr/local/bin/helm3 install gravity-ingress /var/lib/gravity/resources/charts/nginx-ingress \
+/usr/local/bin/helm3 install gravity-ingress /var/lib/gravity/resources/charts/ingress-nginx \
     --namespace ingress \
     --set rbac.create=true \
     --set podSecurityPolicy.enabled=true \

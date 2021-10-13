@@ -7,7 +7,7 @@ if [ "${GRAVITY_CLUSTER_PROVIDER}" == "aws" ] || \
   SVC_TYPE="LoadBalancer"
 fi
 
-/usr/local/bin/helm3 upgrade gravity-ingress /var/lib/gravity/resources/charts/nginx-ingress \
+/usr/local/bin/helm3 upgrade gravity-ingress /var/lib/gravity/resources/charts/ingress-nginx \
     --install \
     --atomic \
     --namespace ingress \
