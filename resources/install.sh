@@ -9,6 +9,7 @@ fi
 
 /usr/local/bin/helm3 install gravity-ingress /var/lib/gravity/resources/charts/ingress-nginx \
     --namespace ingress \
+    --create-namespace \
     --set rbac.create=true \
     --set podSecurityPolicy.enabled=true \
     --set controller.allowSnippetAnnotations=false \
