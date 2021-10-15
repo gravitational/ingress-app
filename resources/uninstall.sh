@@ -1,4 +1,2 @@
 #!/bin/bash
-/usr/local/bin/helm delete gravity-ingress                                   \
-    --purge                                                                  \
-    --namespace ingress                                                      \
+/usr/local/bin/helm3 uninstall gravity-ingress --namespace ingress
